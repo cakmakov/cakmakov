@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/yazi1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:text="Lütfen hava durumunu öğrenmek istediğiniz şehri giriniz."
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/sehirGirisEkrani"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/yazi1"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/tamamButonu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tamam"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/sehirGirisEkrani"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/yazi2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tamamButonu"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Favori şehriniz için:" />
+
+    <Button
+        android:id="@+id/ekleButonu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/yazi1"
+        android:layout_alignStart="@+id/yazi1"
+        android:layout_below="@+id/yazi2"
+        android:layout_marginTop="76dp"
+        android:text="Ekle" />
+
+    <Button
+        android:id="@+id/goruntuleButonu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Görüntüle"
+        android:layout_alignBaseline="@+id/ekleButonu"
+        android:layout_alignBottom="@+id/ekleButonu"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/silButonu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/goruntuleButonu"
+        android:layout_alignEnd="@+id/yazi1"
+        android:layout_alignRight="@+id/yazi1"
+        android:text="Sil" />
+
+</RelativeLayout>
