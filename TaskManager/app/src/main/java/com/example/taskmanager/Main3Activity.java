@@ -27,8 +27,10 @@ import java.util.List;
 public class Main3Activity extends AppCompatActivity {
 
     FirebaseAuth auth;
+    ListView listView;
     List<String> anahtar;
     String message = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,7 @@ public class Main3Activity extends AppCompatActivity {
 
         anahtar = new ArrayList<>();
 
-        ListView listView = (ListView) findViewById(R.id.list);
+        listView = (ListView) findViewById(R.id.list);
         final ArrayList datas = new ArrayList();
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Tasks");
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -63,7 +65,7 @@ public class Main3Activity extends AppCompatActivity {
             }
         });
 
-        ArrayAdapter adapter = new ArrayAdapter(Main3Activity.this, android.R.layout.simple_list_item_1, android.R.id.text1, datas);
+        final ArrayAdapter adapter = new ArrayAdapter(Main3Activity.this, android.R.layout.simple_list_item_1, android.R.id.text1, datas);
         listView.setAdapter(adapter);
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -84,9 +86,8 @@ public class Main3Activity extends AppCompatActivity {
 
                             DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Tasks");
                             dbRef.getRef().child(anahtar.get(position)).setValue(null);
-
-                        Intent intent = new Intent(Main3Activity.this, Main3Activity.class);
-                        startActivity(intent);
+                            datas.clear();
+                            adapter.notifyDataSetChanged();
 
 
                             } else {
@@ -131,21 +132,10 @@ public class Main3Activity extends AppCompatActivity {
 
             case R.id.yenile:
 
-
-                Intent intent = new Intent(Main3Activity.this, Main3Activity.class);
-                startActivity(intent);
-
+                listView.invalidateViews();
 
                 return true;
 
-            case R.id.anaSayfayaDon:
-
-
-                Intent intent2 = new Intent(Main3Activity.this,MainActivity.class);
-                startActivity(intent2);
-
-
-                return true;
 
             case R.id.cikis:
 

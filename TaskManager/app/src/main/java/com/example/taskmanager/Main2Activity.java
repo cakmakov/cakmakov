@@ -26,6 +26,7 @@ public class Main2Activity extends AppCompatActivity {
 
 
     public final static String EXTRA_INFO = "com.example.taskmanager.INFO";
+    ListView listView;
     List<String> veriler;
     List<String> keys;
     String key;
@@ -38,7 +39,7 @@ public class Main2Activity extends AppCompatActivity {
 
 
         keys = new ArrayList();
-        ListView listView = (ListView)findViewById(R.id.gorevListesi);
+        listView = (ListView)findViewById(R.id.gorevListesi);
         veriler = new ArrayList<>();
         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Tasks");
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -58,7 +59,7 @@ public class Main2Activity extends AppCompatActivity {
             }
         });
 
-        ArrayAdapter adapter = new ArrayAdapter(Main2Activity.this,android.R.layout.simple_list_item_1,android.R.id.text1,veriler);
+        final ArrayAdapter adapter = new ArrayAdapter(Main2Activity.this,android.R.layout.simple_list_item_1,android.R.id.text1,veriler);
         listView.setAdapter(adapter);
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -74,9 +75,9 @@ public class Main2Activity extends AppCompatActivity {
 
                         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Tasks");
                         dbRef.getRef().child(keys.get(position)).setValue(null);
+                        veriler.clear();
+                        adapter.notifyDataSetChanged();
 
-                        Intent intent = new Intent(Main2Activity.this,Main2Activity.class);
-                        startActivity(intent);
 
                     }
                 });
@@ -137,10 +138,7 @@ public class Main2Activity extends AppCompatActivity {
 
             case R.id.yenile:
 
-                Intent intent5 = new Intent(Main2Activity.this,Main2Activity.class);
-                startActivity(intent5);
-
-
+                listView.invalidateViews();
 
                 return true;
 

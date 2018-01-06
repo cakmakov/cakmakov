@@ -10,11 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,14 +37,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                DatabaseReference dbRef2 = db.getReference("Verification");
-                String key2 = dbRef2.push().getKey();
-                DatabaseReference dbRefKeyli2 = db.getReference("Verification/"+key2);
-
-                dbRefKeyli2.setValue(new Dogrulama(sifre));
-
-                EditText dogrulama = new EditText(MainActivity.this);
-                final String bilgi = dogrulama.getText().toString().trim();
+                final EditText dogrulama = new EditText(MainActivity.this);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("Doğrulama");
@@ -58,35 +47,18 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        DatabaseReference dR = db.getReference("Verification");
-                        dR.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
+                        String bilgi = dogrulama.getText().toString().trim();
 
-                                for (DataSnapshot gelen: dataSnapshot.getChildren()){
+                        if (bilgi.equals("rasyona")){
 
-                                    gelenList.add(gelen.getValue(Dogrulama.class).getDogrulamaSifre());
-                                    if(gelenList.contains("rasyona")){
+                            Intent intent = new Intent(MainActivity.this,Main2Activity.class);
+                            startActivity(intent);
 
-                                        Intent intent = new Intent(MainActivity.this,Main2Activity.class);
-                                        startActivity(intent);
+                        }else {
 
-                                    }else {
+                            Toast.makeText(getApplicationContext(),"Hatalı Şifre",Toast.LENGTH_LONG).show();
 
-                                        Toast.makeText(getApplicationContext(),"Hatalı Şifre",Toast.LENGTH_LONG).show();
-
-                                    }
-
-
-                                }
-
-                            }
-
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-
-                            }
-                        });
+                        }
 
                     }
                 });
