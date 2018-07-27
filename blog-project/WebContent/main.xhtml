@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+	  
+	<f:metadata>
+  		<f:event type="preRenderView" listener="#{postsController.loadPosts()}"/>
+	</f:metadata>
+
+	<h:head>
+		<title>Elit Köşe</title>
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+		<h:outputStylesheet library="css" name="bootstrap.css" />
+		<h:outputStylesheet library="webAppCss" name="main_style.css" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" />
+	</h:head>
+	
+	<h:body>
+		<div id="ustMenu">
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
+			        		<span class="sr-only">Toggle navigation</span>
+			       		    <span class="icon-bar"></span>
+				      	    <span class="icon-bar"></span>
+				      	    <span class="icon-bar"></span>
+			    	 	 </button>
+						<a href="hikaye.xhtml" class="navbar-brand">Elit Köşe</a>
+					</div>
+					<div class="collapse navbar-collapse" id="bs-nav-demo">
+						<ul class="nav navbar-nav">
+							<li><a href="main.xhtml">Ana Sayfa</a></li>
+							<li><a href="yazarlar.xhtml">Yazarlarımız</a></li>
+							<li><a href="#footer">İletişim</a></li>
+						</ul>
+						<!-- 
+						
+						<div class="form-group">
+						    <input type="text" class="form-control" placeholder="Ara" />
+						  </div>
+						  <button type="submit" class="btn btn-default">Ara</button>
+						
+						 -->
+						<form class="navbar-form navbar-right" role="search">
+						  
+						  <a href="https://twitter.com/?lang=tr" class="fab fa-twitter"></a>
+						  <a href="https://www.instagram.com/?hl=tr" class="fab fa-instagram"></a>
+						 
+						</form>
+					</div>
+				</div>
+			</nav>
+		</div>
+		
+				
+		<div id="ilkPost">
+			<div>
+				<h4>
+					#{postsController.posts[0].date}
+				</h4>
+			</div>		
+					
+			<div>
+				<h2>
+					#{postsController.posts[0].title}
+				</h2>
+				<br></br>
+				<h:graphicImage id="yazarMiniResim" library="images" name="resim2.jpg" width="60" height="60" /> <a id="yazar" href="yazarlar.xhtml">Berkay Işık</a>
+				<hr></hr>
+				<h:graphicImage library="images" name="resim5.jpeg" width="620" height="400" />
+			</div>
+			
+				<p id="firstParagraph">
+					#{postsController.posts[0].content}
+				</p>
+				
+				<br></br>
+				<hr></hr>	
+				<br></br>
+				
+		<div id="ikinciPost">
+			<div>
+				<h4>
+					#{postsController.posts[1].date}
+				</h4>
+			</div>		
+					
+			<div>
+				<h2>
+					#{postsController.posts[1].title}
+				</h2>
+				<br></br>
+				<h:graphicImage id="yazarMiniResim" library="images" name="resim2.jpg" width="60" height="60" /> <a id="yazar" href="yazarlar.xhtml">Berkay Işık</a>
+				<hr></hr>
+				<h:graphicImage library="images" name="resim6.png" width="620" height="400" />
+			</div>
+				
+				<p id="secondParagraph">
+					#{postsController.posts[1].content}
+				</p>
+				
+				<br></br>
+				<hr></hr>	
+				<br></br>
+				
+		</div>
+		
+		<div id="ucuncuPost">
+			<div>
+				<h4>
+					#{postsController.posts[2].date}
+				</h4>
+			</div>		
+					
+			<div>
+				<h2>
+					#{postsController.posts[2].title}
+				</h2>
+				<br></br>
+				<h:graphicImage id="yazarMiniResim" library="images" name="resim2.jpg" width="60" height="60" /> <a id="yazar" href="yazarlar.xhtml">Berkay Işık</a>
+				<hr></hr>
+				<h:graphicImage library="images" name="resim7.jpeg" width="620" height="400"/>
+			</div>
+				
+				<p id="thirdParagraph">
+					#{postsController.posts[2].content}
+				</p>
+		</div>
+		</div>
+		
+		<div id="footer">
+  			<div>
+  				<span id="ilkSutunBaslik">İLETİŞİM</span>
+  				<br></br>
+  				<span id="ilkSutunIcerik">
+  					  <ul id="ilkSutunListesi"> 
+			            <li>
+			              <p>
+			                <i class="fa fa-envelope mr-3"></i> elitkose@gmail.com
+			               </p>
+			            </li>
+			            <li>
+			              <p>
+			                <i class="fa fa-phone mr-3"></i> +01 234 567 88
+			               </p>
+			            </li>
+			            <li>
+			              <p>
+			                <i class="fa fa-print mr-3"></i> +01 234 567 89
+			               </p>
+			            </li>
+			          </ul>
+  				</span> 
+  			</div>
+		</div>
+	</h:body>
+</html>
