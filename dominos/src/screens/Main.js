@@ -14,11 +14,18 @@ export default class Main extends Component {
         };
     }
 
+    addToBasket = (count, items) => {
+        this.setState({basketCount: count});
+        this.setState({basketItems: items});
+        console.log(this.state.basketItems);
+    };
+
     render() {
         const HomePage = () => {
             return(
                 <Home
                     dish={this.state.dishes.filter((dish) => dish.featured)[0]}
+                    addToBasket={this.addToBasket}
                 />
             );
         };
@@ -26,7 +33,7 @@ export default class Main extends Component {
         const BasketPage = () => {
             return(
                 <Basket
-                    dish={this.state.dishes.filter((dish) => dish.featured)[0]}
+                    item={this.state.basketItems}
                 />
             );
         };
@@ -34,7 +41,7 @@ export default class Main extends Component {
 
         return (
             <div>
-                <Header data={this.state.dishes.length}/>
+                <Header data={this.state.basketCount}/>
                 <Switch>
                     <Route path="/home" component={HomePage}/>
                     <Route path="/basket" component={BasketPage}/>

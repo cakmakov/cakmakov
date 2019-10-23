@@ -5,12 +5,11 @@ import RenderCard from '../components/Card/HomeCard';
 export default class Home extends Component {
     constructor(props){
         super(props);
-        this.state = {
-
-        };
+        this.state = {};
     }
 
     render() {
+        const { dish, addToBasket } = this.props;
         return(
             <div>
                 <Jumbotron>
@@ -33,26 +32,44 @@ export default class Home extends Component {
                             <div style={{paddingLeft: "15px", paddingRight: "15px", marginBottom: "25px"}}>
                                 <div className="row align-items-start">
                                     <div className="col-12 col-md m-1">
-                                        <RenderCard item={this.props.dish}/>
+                                        <RenderCard
+                                            dish={dish}
+                                            addToBasket={addToBasket}
+                                        />
                                     </div>
                                     <div className="col-12 col-md m-1">
-                                        <RenderCard item={this.props.dish} />
+                                        <RenderCard
+                                            dish={dish}
+                                            addToBasket={addToBasket}
+                                        />
                                     </div>
                                     <div className="col-12 col-md m-1">
-                                        <RenderCard item={this.props.dish} />
+                                        <RenderCard
+                                            dish={dish}
+                                            addToBasket={addToBasket}
+                                        />
                                     </div>
                                 </div>
                             </div>
                             <div style={{paddingLeft: "15px", paddingRight: "15px"}}>
                                 <div className="row align-items-start">
                                     <div className="col-12 col-md m-1">
-                                        <RenderCard item={this.props.dish} />
+                                        <RenderCard
+                                            dish={dish}
+                                            addToBasket={addToBasket}
+                                        />
                                     </div>
                                     <div className="col-12 col-md m-1">
-                                        <RenderCard item={this.props.dish} />
+                                        <RenderCard
+                                            dish={dish}
+                                            addToBasket={addToBasket}
+                                        />
                                     </div>
                                     <div className="col-12 col-md m-1">
-                                        <RenderCard item={this.props.dish} />
+                                        <RenderCard
+                                            dish={dish}
+                                            addToBasket={addToBasket}
+                                        />
                                     </div>
                                 </div>
                             </div>
