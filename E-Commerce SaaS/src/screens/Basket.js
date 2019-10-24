@@ -2,7 +2,7 @@ import React from 'react';
 import RenderCard from '../components/Card/BasketCard';
 
 const Basket = (props) => {
-    console.log(props)
+    console.log(props);
     return (
         <div style={{background: "#ffebe8"}}>
             <div className="container" style={{
@@ -19,7 +19,12 @@ const Basket = (props) => {
                     <div style={{paddingLeft: "15px", paddingRight: "15px", marginBottom: "25px"}}>
                         <div className="row align-items-start">
                             <div className="col-12 col-md m-1">
-                                <RenderCard item={props.item} />
+                                <RenderCard
+                                    item={props.item}
+                                    basketCount={props.basketCount}
+                                    basketItems={props.basketItems}
+                                    removeFromBasket={props.removeFromBasket}
+                                />
                             </div>
                         </div>
                     </div>

@@ -2,7 +2,8 @@ import React from 'react';
 import {Card} from "reactstrap";
 import {Link} from "react-router-dom";
 
-function RenderCard({item}) {
+
+function RenderCard({item, basketCount, basketItems, removeFromBasket}) {
     console.log(item);
     let tempPrice = 0;
     let totalPrice = 0;
@@ -12,7 +13,7 @@ function RenderCard({item}) {
     }
     return (
         <div>
-            {item.map(item => (
+            {item.map((item, index) => (
                 <Card style={{width: "100%", height: "120px", borderRadius: "30px"}}>
                     <div style={{paddingLeft: "25px", paddingRight: "25px", paddingTop: "30px", paddingBottom: "30px"}}>
                         <div style={{
@@ -34,8 +35,16 @@ function RenderCard({item}) {
                             }}>
                                 {item.name} | <a style={{color: "orange"}}>{item.price} TL</a>
                             </a>
-                            <Link to="/home"><img style={{paddingTop: "10px", paddingBottom: "10px", paddingLeft: "630px", marginRight: "10px"}}
-                                                  src="assets/logos/thrash_logo.png" alt="Thrash" onClick={() => {alert("Seçtiğiniz ürün sepetten kaldırıldı.");}}/></Link>
+                            <Link><img style={{paddingTop: "10px", paddingBottom: "10px", paddingLeft: "630px", marginRight: "10px"}}
+                                                  src="assets/logos/thrash_logo.png"
+                                                  alt="Thrash"
+                                                  onClick={() => {
+                                                      alert("Seçtiğiniz ürün sepetten kaldırıldı.");
+                                                      basketCount--;
+                                                      basketItems.splice(index, 1);
+                                                      removeFromBasket(basketCount, basketItems)
+                                                  }}
+                            /></Link>
                         </div>
                     </div>
                 </Card>

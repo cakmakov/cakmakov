@@ -10,7 +10,9 @@ export default class Main extends Component {
     constructor(props){
         super(props);
         this.state = {
-            dishes: DISHES
+            dishes: DISHES,
+            basketCount: 0,
+            basketItems: []
         };
     }
 
@@ -20,11 +22,18 @@ export default class Main extends Component {
         console.log(this.state.basketItems);
     };
 
+    removeFromBasket = (count, items) => {
+        this.setState({basketCount: count});
+        this.setState({basketItems: items});
+    };
+
     render() {
         const HomePage = () => {
             return(
                 <Home
                     dish={this.state.dishes.filter((dish) => dish.featured)[0]}
+                    basketCount={this.state.basketCount}
+                    basketItems={this.state.basketItems}
                     addToBasket={this.addToBasket}
                 />
             );
@@ -34,6 +43,9 @@ export default class Main extends Component {
             return(
                 <Basket
                     item={this.state.basketItems}
+                    basketCount={this.state.basketCount}
+                    basketItems={this.state.basketItems}
+                    removeFromBasket={this.removeFromBasket}
                 />
             );
         };

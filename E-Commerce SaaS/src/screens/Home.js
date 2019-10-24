@@ -9,7 +9,7 @@ export default class Home extends Component {
     }
 
     render() {
-        const { dish, addToBasket } = this.props;
+        const { dish, basketCount, basketItems, addToBasket } = this.props;
         return(
             <div>
                 <Jumbotron>
@@ -34,18 +34,24 @@ export default class Home extends Component {
                                     <div className="col-12 col-md m-1">
                                         <RenderCard
                                             dish={dish}
+                                            basketCount={basketCount}
+                                            basketItems={basketItems}
                                             addToBasket={addToBasket}
                                         />
                                     </div>
                                     <div className="col-12 col-md m-1">
                                         <RenderCard
                                             dish={dish}
+                                            basketCount={basketCount}
+                                            basketItems={basketItems}
                                             addToBasket={addToBasket}
                                         />
                                     </div>
                                     <div className="col-12 col-md m-1">
                                         <RenderCard
                                             dish={dish}
+                                            basketCount={basketCount}
+                                            basketItems={basketItems}
                                             addToBasket={addToBasket}
                                         />
                                     </div>
@@ -56,18 +62,24 @@ export default class Home extends Component {
                                     <div className="col-12 col-md m-1">
                                         <RenderCard
                                             dish={dish}
+                                            basketCount={basketCount}
+                                            basketItems={basketItems}
                                             addToBasket={addToBasket}
                                         />
                                     </div>
                                     <div className="col-12 col-md m-1">
                                         <RenderCard
                                             dish={dish}
+                                            basketCount={basketCount}
+                                            basketItems={basketItems}
                                             addToBasket={addToBasket}
                                         />
                                     </div>
                                     <div className="col-12 col-md m-1">
                                         <RenderCard
                                             dish={dish}
+                                            basketCount={basketCount}
+                                            basketItems={basketItems}
                                             addToBasket={addToBasket}
                                         />
                                     </div>

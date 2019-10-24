@@ -13,7 +13,7 @@ function Header(props) {
                     </NavLink>
                     <Nav navbar>
                         <NavItem>
-                            {props.data == null ? <NavLink className="nav-link">
+                            {props.data == null || props.data === 0 ? <NavLink className="nav-link">
                                                         <div style={{border: "1px", borderStyle: "solid", borderColor: "#cdcdcd", borderRadius: "30px", paddingLeft: "15px", paddingRight: "15px"}}>
                                                             <img style={{paddingTop: "10px", paddingBottom: "10px", marginRight: "10px"}}
                                                                  src="assets/logos/basket_logo.png" alt="Basket"/>

@@ -1,11 +1,9 @@
 import React from 'react';
 import {Button, Card, CardBody, CardImg, CardSubtitle, CardText, CardTitle} from "reactstrap";
 
-let basketCount = 0;
 let basketItem;
-let basketItems = [];
 
-function RenderCard({dish, addToBasket}) {
+function RenderCard({dish, basketCount, basketItems, addToBasket}) {
     return(
         <Card style={{width: "270px", height: "380px", borderRadius: "30px"}}>
             <CardBody style={{height: "50%", background: "#a9a9a9", borderTopLeftRadius: "30px", borderTopRightRadius: "30px"}}>
