@@ -3,14 +3,19 @@ import Home from './Home';
 import Basket from './Basket';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import {DISHES} from '../utils/dishes';
 import {Switch, Route, Redirect} from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default class Main extends Component {
+const mapStateToProps = state => {
+    return {
+        dishes: state.dishes
+    }
+};
+
+class Main extends Component {
     constructor(props){
         super(props);
         this.state = {
-            dishes: DISHES,
             basketCount: 0,
             basketItems: []
         };
@@ -31,7 +36,7 @@ export default class Main extends Component {
         const HomePage = () => {
             return(
                 <Home
-                    dish={this.state.dishes.filter((dish) => dish.featured)[0]}
+                    dish={this.props.dishes.dishes.filter((dish) => dish.featured)[0]}
                     basketCount={this.state.basketCount}
                     basketItems={this.state.basketItems}
                     addToBasket={this.addToBasket}
@@ -64,3 +69,5 @@ export default class Main extends Component {
         );
     }
 }
+
+export default connect(mapStateToProps)(Main);
